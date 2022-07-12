@@ -8,10 +8,10 @@ let date = document.querySelector("#date");
 let temp = document.querySelector("#temp");
 let weather = document.querySelector("#weather");
 
-inputLocation.value = "London";
+inputLocation.value = "London,uk";
 function fetchWeather() {
   fetch(
-    `${urlBase}weather?q=${inputLocation}&units=metric&APIID=${APIKey}`
+    `${urlBase}weather?q=${inputLocation}&units=metric&APPIID=${APIKey}`
   ).then((res) => {
     console.log(res.json());
   });
