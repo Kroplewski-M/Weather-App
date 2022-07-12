@@ -1,20 +1,30 @@
-let APIKey = "138d1db89bed56362a2151facfba0416";
-let urlBase = "https://api.openweathermap.org/data/2.5/";
+const APIKey = "d691f3d54b136b743c6eedc7c43f34b7";
+const urlBase = "http://api.openweathermap.org/data/2.5/";
 
 let inputLocation = document.querySelector("#inputLocation");
-let loc = document.querySelector("#location");
+let loc = document.querySelector("#loc");
 let btn = document.querySelector("#btn");
 let date = document.querySelector("#date");
 let temp = document.querySelector("#temp");
 let weather = document.querySelector("#weather");
 
-inputLocation.value = "London,uk";
+btn.addEventListener("click", function () {
+  if (inputLocation.value != "") {
+    fetchWeather();
+  }
+});
+
 function fetchWeather() {
   fetch(
-    `${urlBase}weather?q=${inputLocation}&units=metric&APPIID=${APIKey}`
-  ).then((res) => {
-    console.log(res.json());
-  });
+    `${urlBase}weather?q=${inputLocation.value}&units=metric&appid=${APIKey}`
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      loc.innerHTML = data.name;
+      temp.innerHTML = data.main.temp + "&#8451";
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 }
-
-fetchWeather();
