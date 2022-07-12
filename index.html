@@ -5,9 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" defer></script>
     <title>Weather</title>
 </head>
-<body>
-    
+<body class="bg-[url(./resources/background.jpg)] bg-cover bg-no-repeat pb-10">
+    <div class="w-[400px] h-[700px] border-solid border-2 border-black mx-auto mt-10 rounded-md bg-[url(./resources/sunny-weather.jpg)] bg-cover bg-right-top text-center">
+        <input placeholder="Search..." type="text" name="location" id="location" class=" w-[300px] h-[56px]  mt-[50px] bg-gray-100/70 border-solid border-2 border-black/80 rounded-tl-lg text-[26px] font-bold pl-5">
+        <button class="mx-auto mt-5 block w-[100px] h-[40px] drop-shadow-xl hover:bg-blue-900/70 bg-blue-700/70 rounded-xl font-bold ">Search</button>
+        <div class="mt-10 bg-gray-800/60 w-[300px] mx-auto rounded-lg h-[auto]">
+            <p class="text-[25px] font-bold text-gray-100">Barnsley, UK</p>
+            <p class="text-gray-300 mt-[10px] pb-[10px]">Tuesday 12 July 2021</p>
+        </div>
+        <div class="w-[300px] h-[auto] bg-gray-800/60 mx-auto mt-10 rounded-lg ">
+            <p class="text-gray-100 font-bold text-[110px]">10 &#8451</p>
+            <p class="text-gray-300 mt-10 text-[25px] font-bold">Sunny</p>
+        </div>
+    </div>
 </body>
 </html>
