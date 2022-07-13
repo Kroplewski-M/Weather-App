@@ -22,9 +22,14 @@ function fetchWeather() {
     .then((data) => {
       console.log(data);
       loc.innerHTML = data.name;
-      temp.innerHTML = data.main.temp + "&#8451";
+      temp.innerHTML = setDegrees(data.main.temp) + "&#8451";
+      weather.innerHTML = data.weather[0].main;
     })
     .catch((err) => {
       console.log(err);
     });
+}
+
+function setDegrees(number) {
+  return String(number).slice(0, 2);
 }
