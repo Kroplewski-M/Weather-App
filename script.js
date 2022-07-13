@@ -10,6 +10,14 @@ let weather = document.querySelector("#weather");
 let background = document.querySelector("#background");
 let showWeather = document.querySelector("#showWeather");
 
+inputLocation.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    if (inputLocation.value != "") {
+      fetchWeather();
+    }
+  }
+});
+
 btn.addEventListener("click", function () {
   if (inputLocation.value != "") {
     fetchWeather();
