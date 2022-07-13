@@ -7,6 +7,7 @@ let btn = document.querySelector("#btn");
 let date = document.querySelector("#date");
 let temp = document.querySelector("#temp");
 let weather = document.querySelector("#weather");
+let background = document.querySelector("#background");
 
 btn.addEventListener("click", function () {
   if (inputLocation.value != "") {
@@ -24,6 +25,8 @@ function fetchWeather() {
       loc.innerHTML = data.name;
       temp.innerHTML = setDegrees(data.main.temp) + "&#8451";
       weather.innerHTML = data.weather[0].main;
+      setBackground(data.weather[0].main);
+      date.innerHTML = getDate();
     })
     .catch((err) => {
       console.log(err);
@@ -32,4 +35,50 @@ function fetchWeather() {
 
 function setDegrees(number) {
   return String(number).slice(0, 2);
+}
+
+function getDate() {
+  let d = new Date();
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tueday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let day = days[d.getDay()];
+  let date = d.getDate();
+  let month = months[d.getMonth()];
+  let year = d.getFullYear();
+
+  return `${day} ${date} ${month} ${year}`;
+}
+
+function setBackground(weather) {
+  if (weather == "Rain") {
+    background.src = "./resources/rainy-weather.jpg";
+  } else if (weather == "Snow") {
+    background.src = "./resources/snowy-weather.jpg";
+  } else if (weather == "Clear") {
+    background.src = "./resources/sunny-weather.jpg";
+  } else if (weather == "Clouds") {
+    background.src = "./resources/cloudy-weather.jpg";
+  }
 }
