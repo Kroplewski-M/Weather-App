@@ -8,6 +8,7 @@ let date = document.querySelector("#date");
 let temp = document.querySelector("#temp");
 let weather = document.querySelector("#weather");
 let background = document.querySelector("#background");
+let showWeather = document.querySelector("#showWeather");
 
 btn.addEventListener("click", function () {
   if (inputLocation.value != "") {
@@ -27,6 +28,7 @@ function fetchWeather() {
       weather.innerHTML = data.weather[0].main;
       setBackground(data.weather[0].main);
       date.innerHTML = getDate();
+      showWeather.classList.remove("hidden");
     })
     .catch((err) => {
       console.log(err);
