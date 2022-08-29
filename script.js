@@ -1,5 +1,5 @@
 const APIKey = "d691f3d54b136b743c6eedc7c43f34b7";
-const urlBase = "http://api.openweathermap.org/data/2.5/";
+const urlBase = "https://api.openweathermap.org/data/2.5/";
 
 let inputLocation = document.querySelector("#inputLocation");
 let loc = document.querySelector("#loc");
